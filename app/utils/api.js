@@ -35,15 +35,15 @@ function handleError(error) {
 
 function getUserData(player) {
   return axios.all([
-    getProfile(player);
-    getRepos(player);
+    getProfile(player),
+    getRepos(player)
   ]).then((data) => {
     var profile = data[0];
     var repos = data[1];
 
     return {
       profile: profile,
-      score: calculateScore(profile, repos);
+      score: calculateScore(profile, repos)
     }
   });
 }
